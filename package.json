@@ -4,7 +4,8 @@
   "description": "typescript design pattern demo",
   "main": "index.js",
   "scripts": {
-    "factory": "ts-node factory-method/main.ts",
+    "factory-method": "ts-node factory-method/main.ts",
+    "abstract-factory": "ts-node abstract-factory/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
