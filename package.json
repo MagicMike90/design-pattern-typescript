@@ -1,0 +1,24 @@
+{
+  "name": "design-pattern-typescript",
+  "version": "1.0.0",
+  "description": "typescript design pattern demo",
+  "main": "index.js",
+  "scripts": {
+    "factory": "ts-node factory/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagicMike90/design-pattern-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MagicMike90/design-pattern-typescript/issues"
+  },
+  "homepage": "https://github.com/MagicMike90/design-pattern-typescript#readme",
+  "dependencies": {
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
