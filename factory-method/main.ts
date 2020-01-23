@@ -1,27 +1,26 @@
-import { AbstractFactory, ConcreteFactory1, ConcreteFactory2 } from './factory';
+import { ConcreteCreator1, ConcreteCreator2, Creator } from './factory';
 
 /**
- * The client code works with factories and products only through abstract
- * types: AbstractFactory and AbstractProduct. This lets you pass any factory or
- * product subclass to the client code without breaking it.
+ * The client code works with an instance of a concrete creator, albeit through
+ * its base interface. As long as the client keeps working with the creator via
+ * the base interface, you can pass it any creator's subclass.
  */
-function clientCode(factory: AbstractFactory) {
-  const productA = factory.createProductA();
-  const productB = factory.createProductB();
-
-  console.log(productB.usefulFunctionB());
-  console.log(productB.anotherUsefulFunctionB(productA));
+function clientCode(creator: Creator) {
+  // ...
+  console.log(
+    "Client: I'm not aware of the creator's class, but it still works."
+  );
+  console.log(creator.someOperation());
+  // ...
 }
 
 /**
- * The client code can work with any concrete factory class.
+ * The Application picks a creator's type depending on the configuration or
+ * environment.
  */
-console.log("Client: Testing client code with the first factory type...");
-clientCode(new ConcreteFactory1());
-
+console.log("App: Launched with the ConcreteCreator1.");
+clientCode(new ConcreteCreator1());
 console.log("");
 
-console.log(
-  "Client: Testing the same client code with the second factory type..."
-);
-clientCode(new ConcreteFactory2());
+console.log("App: Launched with the ConcreteCreator2.");
+clientCode(new ConcreteCreator2());

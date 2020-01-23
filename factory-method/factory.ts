@@ -1,51 +1,50 @@
-import {
-    AbstractProductA,
-    AbstractProductB,
-    ConcreteProductA1,
-    ConcreteProductA2,
-    ConcreteProductB1,
-    ConcreteProductB2,
-} from './product';
+import { ConcreteProduct1, ConcreteProduct2, Product } from './product';
 
 /**
- * The Abstract Factory interface declares a set of methods that return
- * different abstract products. These products are called a family and are
- * related by a high-level theme or concept. Products of one family are usually
- * able to collaborate among themselves. A family of products may have several
- * variants, but the products of one variant are incompatible with products of
- * another.
+ * The Creator class declares the factory method that is supposed to return an
+ * object of a Product class. The Creator's subclasses usually provide the
+ * implementation of this method.
  */
-export interface AbstractFactory {
-  createProductA(): AbstractProductA;
+export abstract class Creator {
+  /**
+   * Note that the Creator may also provide some default implementation of the
+   * factory method.
+   */
+  public abstract factoryMethod(): Product;
 
-  createProductB(): AbstractProductB;
-}
-
-/**
- * Concrete Factories produce a family of products that belong to a single
- * variant. The factory guarantees that resulting products are compatible. Note
- * that signatures of the Concrete Factory's methods return an abstract product,
- * while inside the method a concrete product is instantiated.
- */
-export class ConcreteFactory1 implements AbstractFactory {
-  public createProductA(): AbstractProductA {
-    return new ConcreteProductA1();
-  }
-
-  public createProductB(): AbstractProductB {
-    return new ConcreteProductB1();
+  /**
+   * Also note that, despite its name, the Creator's primary responsibility is
+   * not creating products. Usually, it contains some core business logic that
+   * relies on Product objects, returned by the factory method. Subclasses can
+   * indirectly change that business logic by overriding the factory method
+   * and returning a different type of product from it.
+   */
+  public someOperation(): string {
+    // Call the factory method to create a Product object.
+    const product = this.factoryMethod();
+    // Now, use the product.
+    return `Creator: The same creator's code has just worked with ${product.operation()}`;
   }
 }
 
 /**
- * Each Concrete Factory has a corresponding product variant.
+ * Concrete Creators override the factory method in order to change the
+ * resulting product's type.
  */
-export class ConcreteFactory2 implements AbstractFactory {
-  public createProductA(): AbstractProductA {
-    return new ConcreteProductA2();
+export class ConcreteCreator1 extends Creator {
+  /**
+   * Note that the signature of the method still uses the abstract product
+   * type, even though the concrete product is actually returned from the
+   * method. This way the Creator can stay independent of concrete product
+   * classes.
+   */
+  public factoryMethod(): Product {
+    return new ConcreteProduct1();
   }
+}
 
-  public createProductB(): AbstractProductB {
-    return new ConcreteProductB2();
+export class ConcreteCreator2 extends Creator {
+  public factoryMethod(): Product {
+    return new ConcreteProduct2();
   }
 }
