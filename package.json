@@ -8,6 +8,7 @@
     "abstract-factory": "ts-node abstract-factory/main.ts",
     "builder": "ts-node builder/main.ts",
     "prototype": "ts-node prototype/main.ts",
+    "singleton": "ts-node singleton/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

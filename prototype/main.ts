@@ -34,7 +34,6 @@ function clientCode() {
       "Component with back reference is linked to original object. Booo!"
     );
   } else {
-    console.log(p1.circularReference);
     console.log("Component with back reference is linked to the clone. Yay!");
   }
 }
