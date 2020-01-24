@@ -10,6 +10,7 @@
     "prototype": "ts-node prototype/main.ts",
     "singleton": "ts-node singleton/main.ts",
     "adapter": "ts-node adapter/main.ts",
+    "bridge": "ts-node bridge/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
