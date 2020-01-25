@@ -11,6 +11,7 @@
     "singleton": "ts-node singleton/main.ts",
     "adapter": "ts-node adapter/main.ts",
     "bridge": "ts-node bridge/main.ts",
+    "composite": "ts-node composite/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
