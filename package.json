@@ -13,6 +13,7 @@
     "bridge": "ts-node bridge/main.ts",
     "composite": "ts-node composite/main.ts",
     "decorator": "ts-node decorator/main.ts",
+    "facade": "ts-node facade/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
