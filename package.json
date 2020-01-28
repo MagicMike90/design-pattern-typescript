@@ -16,6 +16,7 @@
     "facade": "ts-node facade/main.ts",
     "flyweight": "ts-node flyweight/main.ts",
     "cor": "ts-node chain-of-responsibility/main.ts",
+    "proxy": "ts-node proxy/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
