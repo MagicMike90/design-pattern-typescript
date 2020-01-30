@@ -23,6 +23,7 @@
     "memento": "ts-node memento/main.ts",
     "observer": "ts-node observer/main.ts",
     "state": "ts-node state/main.ts",
+    "strategy": "ts-node strategy/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
