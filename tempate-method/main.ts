@@ -1,17 +1,19 @@
-import { Context } from './context';
-import { ConcreteStrategyA, ConcreteStrategyB } from './strategy';
+import { AbstractClass, ConcreteClass1, ConcreteClass2 } from './class';
 
 /**
- * The client code picks a concrete strategy and passes it to the context. The
- * client should be aware of the differences between strategies in order to make
- * the right choice.
+ * The client code calls the template method to execute the algorithm. Client
+ * code does not have to know the concrete class of an object it works with, as
+ * long as it works with objects through the interface of their base class.
  */
-const context = new Context(new ConcreteStrategyA());
-console.log("Client: Strategy is set to normal sorting.");
-context.doSomeBusinessLogic();
+function clientCode(abstractClass: AbstractClass) {
+  // ...
+  abstractClass.templateMethod();
+  // ...
+}
 
+console.log("Same client code can work with different subclasses:");
+clientCode(new ConcreteClass1());
 console.log("");
 
-console.log("Client: Strategy is set to reverse sorting.");
-context.setStrategy(new ConcreteStrategyB());
-context.doSomeBusinessLogic();
+console.log("Same client code can work with different subclasses:");
+clientCode(new ConcreteClass2());
